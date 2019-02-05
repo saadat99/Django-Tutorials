@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
+    'home',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'tutorial.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'tutorial.urls'
@@ -118,3 +121,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'tutorial/media')
+
+LOGIN_REDIRECT_URL = '/home/'
+
+LOGIN_URL = '/account/login/'
+
+LOGIN_EXEMPT_URLS = (
+    'account/logout/',
+    'account/register/',
+    'account/reset-password/',
+    'account/reset-password/done/',
+    'account/reset-password/confirm/(<uidb64>[0-9A-Za-z]+)-(<token>.+)/',
+    'account/reset-password/complete/',
+)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
