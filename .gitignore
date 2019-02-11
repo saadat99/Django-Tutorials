@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 /tutorial/*.pyc
 /tutorial/db.sqlite3
 /tutorial/tutorial/settings/local
+=======
+*.pyc
+/tutorial/db.sqlite3
+/tutorial/settings/local
+>>>>>>> 10d246d5cb0d332fed1e93068f6acc1491315464
 db.sqlite3
