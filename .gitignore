@@ -1,0 +1,4 @@
+/tutorial/*.pyc
+/tutorial/db.sqlite3
+/tutorial/tutorial/settings/local
+db.sqlite3
