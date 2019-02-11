@@ -14,27 +14,27 @@ from django.contrib.auth.decorators import login_required
 
 
 def register(request):
-    if request.method == 'GET':
-        form = RegistrationForm()
-        args = {'form':form}
-        return render(request,'accounts/reg_form.html',args)
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/account')
-        else:
-            return HttpResponse('You have an error while filling the form , dont forget to set more complex password')
-    # if request.method =='POST':
+    # if request.method == 'GET':
+    #     form = RegistrationForm()
+    #     args = {'form':form}
+    #     return render(request,'accounts/reg_form.html',args)
+    # if request.method == 'POST':
     #     form = RegistrationForm(request.POST)
     #     if form.is_valid():
     #         form.save()
-    #         return redirect(reverse('accounts:home'))
-    # else:
-    #     form = RegistrationForm()
-    #
-    #     args = {'form': form}
-    #     return render(request, 'accounts/reg_form.html', args)
+    #         return redirect('/account')
+    #     else:
+    #         return HttpResponse('You have an error while filling the form , dont forget to set more complex password')
+    if request.method =='POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('accounts:home'))
+    else:
+        form = RegistrationForm()
+
+        args = {'form': form}
+        return render(request, 'accounts/reg_form.html', args)
 
 def view_profile(request, pk=None):
     if pk:
