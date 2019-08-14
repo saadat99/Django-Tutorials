@@ -1,4 +1,9 @@
-/tutorial/*.pyc
-/tutorial/db.sqlite3
-/tutorial/tutorial/settings/local
-*/db.sqlite3
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+.env
+db.sqlite3
